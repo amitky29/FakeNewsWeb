@@ -54,7 +54,7 @@ class Navbar extends Component {
                             <Link to='/'><img src={Logo} width='60px' height='40px' /></Link>
                         </div>
                         <div className='mobile_title'>
-                            <h2>FakeNews Indicator</h2>
+                            <h2>FAKENEWS CHECKER</h2>
                         </div>
                         <div className='mobile_nav' open={this.state.sideBarOpen} id='nav_bar_icon'>
                             <FaBars />
@@ -83,7 +83,7 @@ const NavbarWrapper = styled.div`
         background: var(--mainBlack);
         border-bottom: 3px solid var(--complimentaryYellow);
         border-bottom: 3px solid red;
-        z-index: 1000000;
+        z-index: 1;
     }
     .navbar--hidden {
         top: -50px;
