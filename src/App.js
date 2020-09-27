@@ -16,11 +16,13 @@ const App = () => {
       <Router>
         <Header />
         <Switch>
-          <Route path = '/' exact component = {Home} />
-          <Route path = '/about' exact component = {About} />
-          <Route path = '/contact' exact component = {Contact} />
-          <Route path = '/Info' exact component = {Info} />
+          {/* <main className='main_start'> */}
+          <Route exact path = '/'  component = {Home} />
+          <Route exact path = '/about' component = {About} />
+          <Route exact path = '/contact' component = {Contact} />
+          <Route exact path = '/info' component = {Info} />
           <Route component = {Error} />
+          {/* </main> */}
         </Switch>
         <Footer />
       </Router>
