@@ -1,74 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import FirstSection from '../components/Home/FirstSection';
 
 const Home = () => {
     return (
-        <>
-        <div className='main_start'></div>
-        <h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1>
-        <h1>
-            home            
-        </h1>
-        <h1>
-        home            
-    </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1><h1>
-            home            
-        </h1>
-        </>
+        <HomeWrapper>
+        <div className='main_start home_container'>
+            <div className='h_first_section'>
+                <FirstSection />
+            </div>
+        </div>
+        </HomeWrapper>
     )
 }
+
+const HomeWrapper = styled.div`
+
+`;
 
 export default Home;

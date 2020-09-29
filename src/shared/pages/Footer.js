@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     let date = new Date().getFullYear();
+
     return (
         <FooterWrapper>
             <div className='footer_container'>

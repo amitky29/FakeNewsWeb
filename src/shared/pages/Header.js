@@ -47,7 +47,7 @@ class Navbar extends Component {
 
     render() {
         return (
-            <NavbarWrapper open={this.state.sideBarOpen}>
+            <NavbarWrapper >
                 <nav className={classNames('navbar', { 'navbar--hidden': !this.state.visible})} >
                     <div className='nav_container'>
                         <div className='logo_container'>

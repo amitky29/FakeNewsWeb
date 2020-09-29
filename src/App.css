@@ -9,7 +9,8 @@
 
 
 :root {
-  --primaryTitleColor: rgb(66, 4, 4);
+  /* --primaryTitleColor: rgb(66, 4, 4); */
+  --primaryTitleColor: rgb(17, 124, 128);
   --secondaryTitleColor: rgb(206, 168, 0);
   --darkGreyShade: rgb(66, 66, 62);
   --lightGreyShade: rgb(230, 228, 222);
@@ -17,7 +18,7 @@
   --slowTransition: 0.6s;
   --primaryLetterSpacing: 2px;
   --mainWhite: rgb(255, 239, 239);
-  --mainBlack: rgb(3, 3, 3);
+  --mainBlack: rgb(4, 13, 19);
   --complimentaryYellow: rgb(255, 217, 0);
   --navigationHeight: 4.2rem;
   --boldTitle: 'Montserrat', sans-serif;
