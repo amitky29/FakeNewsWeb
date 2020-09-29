@@ -39,7 +39,7 @@ const FirstSection = () => {
                         <h1>First Website to Check Fake News</h1>
                     </div>      
                     <div className='home_small_button'>
-                        <SmallButton title='What we do?' link='/about' />
+                        <SmallButton title='What we do & who are we?' link='/about' />
                     </div>          
                 </div>
                 <div className='h_f_t'>

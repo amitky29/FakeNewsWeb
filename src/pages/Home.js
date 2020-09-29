@@ -10,13 +10,23 @@ const Home = () => {
             <div className='h_first_section'>
                 <FirstSection />
             </div>
+            <div className='h_second_section'>
+                {/* coming soon.. */}
+            </div>
+            <div className='h_third_section'>
+                {/* coming soon.. */}
+            </div>
         </div>
         </HomeWrapper>
     )
 }
 
 const HomeWrapper = styled.div`
-
+    .h_first_section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 `;
 
 export default Home;
