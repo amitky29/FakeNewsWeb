@@ -8,10 +8,11 @@ import tool from '../../images/settings.svg';
 import stop from '../../images/stop.svg';
 import suit from '../../images/safetysuit.svg';
 import first from '../../images/goldmedal.svg';
+import home_first from '../../images/home_first_bg.jpg';
 
 const FirstSection = () => {
     return (
-            <HomeFirstSectionWraper>
+            <HomeFirstSectionWraper img={home_first}>
                 <div className='h_f_f'>
                     <div className='h_f_f_title'>
                         <h1>
@@ -70,6 +71,10 @@ const HomeFirstSectionWraper = styled.div`
         margin-top: 20px;
         padding-bottom: 10px;
     }
+    .h_f_s {
+            background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.2)), url(${props => props.img}) center/cover no-repeat;
+    }
+
     /* ***************Desktop Display *********************/
     
     @media screen and (min-width: 900px) {
@@ -127,6 +132,7 @@ const HomeFirstSectionWraper = styled.div`
         .h_f_s_title {
             color: var(--primaryTitleColor);
         }
+
     }
     /* ******************************************Mobile Display****************************************** */
     @media screen and (max-width: 900px) {
