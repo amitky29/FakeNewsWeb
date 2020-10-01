@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import FirstSection from '../components/Home/FirstSection';
+import SecondSection from '../components/Home/SecondSection';
 
 const Home = () => {
     return (
@@ -11,7 +12,7 @@ const Home = () => {
                 <FirstSection />
             </div>
             <div className='h_second_section'>
-                {/* coming soon.. */}
+                <SecondSection />
             </div>
             <div className='h_third_section'>
                 {/* coming soon.. */}
