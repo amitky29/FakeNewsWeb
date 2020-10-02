@@ -23,7 +23,7 @@ const ThirdSection = () => {
                     Data.map(p => {
                         return(
                             <div className='t_s_s_single_card'>
-                                <ThirdCard title={p.title} img={p.img} para={p.para} />
+                                <ThirdCard title={p.title} img={p.img} para={p.para} link={p.link} />
                             </div>
                         )
                     })
@@ -66,7 +66,7 @@ const ThirdSectionWrapper = styled.div`
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             width: 90vw;
         }
         .t_s_s_left {

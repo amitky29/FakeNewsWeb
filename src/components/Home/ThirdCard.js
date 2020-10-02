@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaGlobe } from 'react-icons/fa';
 
-const ThirdCard = ({title, img, para}) => {
+import { Link } from 'react-router-dom';
+
+const ThirdCard = ({title, img, para, link}) => {
     return (
         <ThirdCardWrapper img={img}>
             <div className='t_c_first'>
@@ -15,16 +18,42 @@ const ThirdCard = ({title, img, para}) => {
             <div className='t_c_para'>
                 <p>{para}</p>
             </div>
+            <div className='icon'>
+                {/* <a href='/'><FaGlobe /></a> */}
+                <a href={link} target='_blank'>Visit</a>
+            </div>
         </ThirdCardWrapper>
     )
 }
 
 const ThirdCardWrapper = styled.div`
-    border: 1px solid rgba(255,255,255,0.3);
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.2);
     border-bottom: transparent;
     border-radius: 10px;
     color: whitesmoke;
     width: 250px;
+    
+    a:hover {
+        color: green;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        font-weight: bolder;
+        font-size: 10px;
+        padding: 2px;
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+    .icon {
+        position: absolute;
+        top: 0%;
+        right:0%;
+        padding: 1px;
+        background: whitesmoke;
+        border: 1px solid rgba(0,0,0,0.3);
+    }
     .t_c_logo {
         background: url(${props => props.img}) center/cover no-repeat;
         width: 50px;
