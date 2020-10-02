@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+// Import Componenets
 import FirstSection from '../components/Home/FirstSection';
 import SecondSection from '../components/Home/SecondSection';
+import ThirdSection from '../components/Home/ThirdSection';
 
 const Home = () => {
     return (
@@ -15,7 +18,7 @@ const Home = () => {
                 <SecondSection />
             </div>
             <div className='h_third_section'>
-                {/* coming soon.. */}
+                <ThirdSection />
             </div>
         </div>
         </HomeWrapper>

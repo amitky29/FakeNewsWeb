@@ -88,7 +88,6 @@ const HomeFirstSectionWraper = styled.div`
             align-items: center;
             /* border: 2px solid green; */
             flex-basis: 40%;
-
         }        
         .h_f_f_img_container {
             display: flex;

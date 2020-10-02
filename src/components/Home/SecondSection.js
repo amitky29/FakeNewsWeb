@@ -59,10 +59,12 @@ const SecondSection = () => {
 }
 
 const SecondSectionWrapper = styled.div`
+    margin-bottom: 0;
     .second_section_container {
         width: 100vw;
         background: #6b5c5c;
         margin: 2rem;
+        margin-bottom: 0;
     }
     
     .s_s_c_i_title h1 {
