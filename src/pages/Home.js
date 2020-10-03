@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import FirstSection from '../components/Home/FirstSection';
 import SecondSection from '../components/Home/SecondSection';
 import ThirdSection from '../components/Home/ThirdSection';
+import FourthSection from '../components/Home/FourthSection';
 
 const Home = () => {
     return (
@@ -19,6 +20,9 @@ const Home = () => {
             </div>
             <div className='h_third_section'>
                 <ThirdSection />
+            </div>
+            <div className='h_fourth_section'>
+                <FourthSection />
             </div>
         </div>
         </HomeWrapper>
