@@ -154,6 +154,9 @@ const SecondSectionWrapper = styled.div`
             text-align: center;
             margin-right: 40px;
         }
+        .s_s_c_i_r_c_left {
+            padding: 30px;
+        }
     }
 `;
 
