@@ -36,12 +36,14 @@ const ThirdSection = () => {
 
 const ThirdSectionWrapper = styled.div`
     background: rgb(236,151,31);
-    background: linear-gradient(180deg, rgba(236,151,31,1) 0%, rgba(107,92,92,1) 0%, rgba(25,23,23,1) 95%);
+    background: linear-gradient(180deg, rgba(236,151,31,1) 0%, rgba(107,92,92,1) 0%, rgba(25,23,23,1) 69%);
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
+
     .t_s_s_right_para {
         color: white;
         word-wrap: wrap;
@@ -49,7 +51,6 @@ const ThirdSectionWrapper = styled.div`
         margin: 15px;
         padding: 15px;
         /* margin-right: 28px; */
-
     }
     .third_section_first {
         color: whitesmoke;
@@ -61,6 +62,8 @@ const ThirdSectionWrapper = styled.div`
     }
     /* **********Desktop********** */
     @media screen and (min-width: 900px) {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 94%);
+
         padding-top: 20px;
         .third_section_second {
             display: flex;
