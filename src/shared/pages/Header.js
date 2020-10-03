@@ -60,7 +60,7 @@ class Navbar extends Component {
                             <FaBars />
                         </div>
                         <div className='menu_container' onClick={(e) => this.handleSideBar(e)}>
-                            <Menu open={this.state.sideBarOpen} handle={this.handleSideBar}/>
+                            <Menu open={this.state.sideBarOpen} handle={this.handleSideBar} visible={this.state.visible} />
                         </div>
                         <div className='social_container'>
                             <Social />

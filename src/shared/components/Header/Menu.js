@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
-const Menu = ({ open, handle }) => {
+
+const Menu = ({ open, handle, visible }) => {
     return (
-        <MenuWrapper open = {open}>
+        <MenuWrapper open = {open} visible = {!visible}>
             <ul className='nav_links'>
                 <li>
                     <NavLink to='/' exact onClick={handle}>
@@ -68,6 +70,7 @@ const MenuWrapper = styled.div`
     @media screen and (max-width: 860px) {
         /* display: none; */
         z-index: 2;
+        
         .nav_links {
             transform: ${props => props.open ? 'translateX(-2%)' : 'translateX(-100%)'};
             /* width: 200px; */
@@ -77,6 +80,7 @@ const MenuWrapper = styled.div`
             justify-content: space-around;
             position: fixed;
             top: var(--navigationHeight);
+            top: ${props => props.visible ? '17px': '4.2rem'};
             left: 0;
             border: 2px solid black;
             background: var(--mainBlack);
