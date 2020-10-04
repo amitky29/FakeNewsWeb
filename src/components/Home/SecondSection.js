@@ -8,7 +8,7 @@ import BigButton from '../../shared/components/Button/BigButton';
 
 const SecondSection = () => {
     return (
-        <SecondSectionWrapper right_img={dancing}>
+        <SecondSectionWrapper right_img={dancing} >
             <div className='second_section_container'>
                 <div className='s_s_c_inner'>
                     <div className='s_s_c_i_title'>

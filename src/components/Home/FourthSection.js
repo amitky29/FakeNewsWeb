@@ -49,7 +49,7 @@ const FourthSection = () => {
 
     return (
         <FourthSectionWrapper>
-            <Carousel breakPoints={breakPoints}>
+            <Carousel breakPoints={breakPoints} pagination={true} itemPadding={[5,5,5,5]} enableAutoPlay={true} focusOnSelect={false}>
                 {Data.map(item => {
                         return (
                             <div className='news_card'>
