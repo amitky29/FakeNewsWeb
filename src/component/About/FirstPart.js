@@ -82,6 +82,11 @@ const FirstPartWrapper = styled.div`
             border-radius: 100%;
         }
 }
+@media screen and (max-width:900px){
+    .first{
+        text-align:center;
+    }
+}
 `;
 
 export default FirstPart;
