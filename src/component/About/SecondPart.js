@@ -58,6 +58,14 @@ const SecondPartWrapper = styled.div`
         width: 300px;
         height: 280px
     }
+    @media screen and (max-width:900px) {
+        .Cards {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 `;
 
 
