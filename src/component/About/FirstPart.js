@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import FakeImg from '../../images/aboout/fake-news.svg';
+import FakeImg from '../../images/fake-news.svg';
 
 const FirstPart = () => {
     return (
