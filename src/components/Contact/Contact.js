@@ -20,7 +20,7 @@ const Contact = () => {
 const ContactWrapper = styled.div`
     .contact_second {
         position: relative;
-        border: 2px solid red;
+        /* border: 2px solid red; */
     }
 `;
 
