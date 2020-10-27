@@ -26,7 +26,7 @@ const AboutUsData = [
     },
     {
         img: b3,
-        Name: 'Prabhat Silngh',
+        Name: 'Prabhat Singh',
         info: 'info prabhas prabhas prabhas info prabhas prabhas prabhas info prabhas prabhas prabhas',
         linkedin: 'https://www.google.com',
         fb: 'https://www.fb.com'
