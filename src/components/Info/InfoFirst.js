@@ -38,7 +38,7 @@ const InfoFirstWrapper=styled.div`
     justify-content:center;
     align-items:center;
     width:75vw;
-    height:17vw;
+    /* height:17vw; */
     background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(${props => props.img}) center/cover no-repeat;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
     padding: 20px;
@@ -52,6 +52,15 @@ const InfoFirstWrapper=styled.div`
         font-size: 18px;
         color:rgba(0,0,0,0.8);
         font-weight:bolder;
+    }
+    @media screen and (max-width: 900px) {
+        .first {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 `;
 export default InfoFirst

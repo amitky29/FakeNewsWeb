@@ -69,6 +69,7 @@ const ContactCard = () => {
 const ContactCardWrapper = styled.div`
     /* width: 600px; */
     /* height: 200px; */
+    @media screen and (min-width: 1000px) {
     background: white;
     box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.3);
     position: absolute;
@@ -77,6 +78,7 @@ const ContactCardWrapper = styled.div`
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 10;
+    }
     textarea {
         border: none;
         outline: none;
@@ -161,6 +163,29 @@ const ContactCardWrapper = styled.div`
     }
     .c_btn {
         padding-left: 10px;
+    }
+    @media screen and (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        .card_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .form_container {
+            background: whitesmoke;
+            margin-top: 20px;
+        }
+        .details_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 `;
 

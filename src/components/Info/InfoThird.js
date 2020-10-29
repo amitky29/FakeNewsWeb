@@ -44,6 +44,8 @@ const InfoThirdWrapper=styled.div`
         align-items: center;
     }
     .itw_btn {
+        text-transform: uppercase;
+        letter-spacing: 2px;
         text-decoration: none;        
         color: white;
         animation-name: color_change;
@@ -53,8 +55,10 @@ const InfoThirdWrapper=styled.div`
     }
 
     .itw_button {
+        box-sizing: border-box;
+        display: inline;
         padding: 12px;
-        background: navy;
+        background:  navy;
         color: white;
         font-size: 23px;
         letter-spacing: 1.3px;
@@ -63,19 +67,20 @@ const InfoThirdWrapper=styled.div`
     }
     .itw_button:hover {
         background: white;
-        border: 2px solid navy;
+        border: 10px solid navy;
         color: navy;
         font-weight: bolder;
         .itw_btn {
             color: navy;
+            animation-duration: 0ms;
         }
     }
     .arrow {
         width: 100px;
         /* margin-left: 2px; */
         animation-name: trans;
-        animation-duration: 900ms;
-        animation-timing-function: linear;
+        animation-duration: 2000ms;
+        animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
     }
     @keyframes trans {
@@ -84,6 +89,7 @@ const InfoThirdWrapper=styled.div`
         }
         to {
             transform: translateX(30px);
+            opacity: 0;
         }
     }
     @keyframes color_change {
@@ -96,6 +102,12 @@ const InfoThirdWrapper=styled.div`
         50% {
             color: green;
         }
+    }
+
+    @media screen and (max-width: 900px) {
+        .itw_heading {
+            font-size: 20px;
+        }        
     }
 
 `;

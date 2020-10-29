@@ -24,8 +24,10 @@ const ContactFirst = () => {
 };
 
 const ContactFirstWrapper = styled.div`
-    width: 70vw;
-    height: 50vh;
+    @media screen and (min-width: 1000px) {
+        width: 70vw;
+        height: 50vh;
+    }
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -56,6 +58,29 @@ const ContactFirstWrapper = styled.div`
         background: yellow;
         padding: 12px;
         border-radius: 100%;
+    }
+    @media screen and (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;     
+        .contact_first {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }   
+        p {
+            width: 90vw;
+            margin: 0 auto;
+            text-align: center;
+            padding: 25px;
+        }
+        .contact_second {
+            margin: 20px;
+        }
+        
     }
 `;
 

@@ -124,7 +124,34 @@ const InfoSecondWrapper=styled.div`
 .photo1{
     background:url(${props => props.itwo_img}) center/cover no-repeat;
 }
-
+@media screen and (max-width: 900px) {
+    .photo {
+        width: 120px;
+        height: 120px;
+    }    
+    .ione, .itwo, .ithree {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .s_p_para {
+        font-size: 16px;
+        letter-spacing: 0px;
+        width: 100vw;
+        margin-bottom: 50px;
+        background: wheat;
+        clip-path: circle(76.5% at 49% 22%);
+    }
+    .info {
+        width: 100vw;
+        font-size: 16px;
+        font-weight: lighter;
+        padding: 20px;
+    }
+}
 `;
 
 
