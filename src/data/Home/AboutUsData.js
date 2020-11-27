@@ -6,28 +6,28 @@ const AboutUsData = [
     {
         img: gf1,
         Name: 'Prajakta Nigade',
-        info: 'DYPCOE COMP Placed tcsDYPCOE COMP Placed tcsDYPCOE COMP Placed tcs',
+        info: 'Frontend Developer, ML enthusiast. Contact me by clicking on the link',
         linkedin: 'https://www.google.com',
         fb: 'https://www.fb.com'
     },
     {
         img: b3,
         Name: 'Rishabh Shukla',
-        info: 'information rishab rishab rishab information rishab rishab rishab information rishab rishab rishab',
+        info: 'Backend developer, worked on MongoDb, SQL, Node etc. ',
         linkedin: 'https://www.google.com',
         fb: 'https://www.fb.com'
     },
     {
         img: gf1,
         Name: 'Shravani Poman',
-        info: 'shravani shravani shravani shravani shravani shravani shravani shravani shravani',
+        info: 'Frontend developer, React lover and equiped with SEO and SMM. Check out my profile!',
         linkedin: 'https://www.google.com',
         fb: 'https://www.fb.com'
     },
     {
         img: b3,
         Name: 'Prabhat Singh',
-        info: 'info prabhas prabhas prabhas info prabhas prabhas prabhas info prabhas prabhas prabhas',
+        info: 'having 2 year of experience in Full stack development and new at ML and NLP.',
         linkedin: 'https://www.google.com',
         fb: 'https://www.fb.com'
     },

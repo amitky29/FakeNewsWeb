@@ -20,8 +20,8 @@ const FirstPart = () => {
                     
                 </div>
                 <div className="first_bot">
-                    <p>Our Mission is to check the truthness percentage of the news!!!. Our Mission is to check the truthness percentage of the news!!!Our Mission is to check the truthness percentage of the news!!!Our Mission is to check the truthness percentage of the news!!!</p>
-                    <p>Our Mission is to check the truthness percentage of the news!!!</p>
+                    <p>Fake news is Increasing at tremendous rate, more than virus spread and It's getting too dangerous for society as well. We are here to continuously developing and upgrading a tool which can help to detect fake news!</p>
+                    <p>We are bunch of young developers who are working on tool to find the solution.</p>
                     
                 </div>
             </div>
