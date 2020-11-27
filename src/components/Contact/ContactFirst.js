@@ -10,7 +10,7 @@ const ContactFirst = () => {
         <ContactFirstWrapper>
             <div className='contact_first'>
                 <h2>Get In Touch</h2>
-                <p>Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar</p>
+                <p>Feel free to share any suggestion and contact us at following address or send us direct message</p>
             </div>
             <div className='contact_second'>
                 <GrLocation />
