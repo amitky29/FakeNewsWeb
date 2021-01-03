@@ -29,8 +29,8 @@ const Menu = ({ open, handle, visible }) => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/login' exact onClick={handle}>
-                        Login
+                    <NavLink to='/tool' exact onClick={handle}>
+                        Tool
                     </NavLink>
                 </li>
             </ul>
