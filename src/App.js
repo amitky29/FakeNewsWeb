@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import Info from './pages/Info';
 import Error from './shared/pages/Error';
 import tool from './pages/Tool';
+import tool1 from './pages/Tools';
+
 import './App.css';
 
 const App = () => {
@@ -22,7 +24,7 @@ const App = () => {
           <Route exact path = '/about' component = {About} />
           <Route exact path = '/contact' component = {Contact} />
           <Route exact path = '/info' component = {Info} />
-          <Route exact path = '/tool' component = {tool} />
+          <Route exact path = '/tool' component = {tool1} />
           <Route component = {Error} />
           {/* </main> */}
         </Switch>

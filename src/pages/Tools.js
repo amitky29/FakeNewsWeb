@@ -11,6 +11,7 @@ export default class PersonList extends React.Component {
     state = {
       h1: '',
       h2: '',
+      add: '',
       output: '',
       loading: false,
       start: true
@@ -25,6 +26,10 @@ export default class PersonList extends React.Component {
         this.setState({ h2: event.target.value });
     }
 
+    handleChange2 = event => {
+        this.setState({ add: event.target.value });
+    }
+
     handleSubmit = event => {
       event.preventDefault();
       this.setState({start: false, loading: true});
@@ -34,7 +39,8 @@ export default class PersonList extends React.Component {
         h2: this.state.h2
       };
 
-      axios.post(`http://localhost:8000/api/classify/`, { user } )
+      axios.post(`${this.state.add}`, { user } )
+    //   axios.post(`http://127.0.0.1:8000/api/classify/`, {user})
         .then(res => {
           console.log(res);
           console.log(res.data);
@@ -55,6 +61,11 @@ export default class PersonList extends React.Component {
                 <h3>Enter Heading and Content</h3>
             </div>
             <div className='input_area'>
+            <div className='form_heading'>
+                    <label for='heading'>Ip: </label>
+                    <br></br>
+                    <input type='text' name='add' onChange={this.handleChange2} requried />
+                </div>
                 <div className='form_heading'>
                     <label for='heading'>Heading: </label>
                     <br></br>
@@ -73,7 +84,7 @@ export default class PersonList extends React.Component {
           <div className='result_container'>
             {
                 this.state.start?
-                <h1>Result will be displayed here</h1>
+                <h1>Testing....</h1>
                 :
                 this.state.loading ?
                 <h2>Loading...</h2>
