@@ -87,7 +87,7 @@ export default class PersonList extends React.Component {
                 <h1>Testing....</h1>
                 :
                 this.state.loading ?
-                <h2>Loading...</h2>
+                <h2>Loading..</h2>
                 :
                 <Model res={this.state.output} />
             }
