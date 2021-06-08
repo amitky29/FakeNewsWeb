@@ -4,6 +4,7 @@ import * as settings from '../settings';
 import styled from "styled-components";
 // import SubmitButton from './ContactButton';
 import SubmitButton from '../components/Contact/ContactButton';
+import Model from '../components/Tool/Model';
 
 
 export default class PersonList extends React.Component {
@@ -33,14 +34,7 @@ export default class PersonList extends React.Component {
         h2: this.state.h2
       };
 
-      axios.post(`http://localhost:8000/api/classify/`, { user } 
-      // {
-        // headers: {
-        // // 'Content-Type': 'application/json',
-        // // 'Accept': '*/*',
-        // 'Access-Control-Allow-Origin': '*'
-        // }}
-        )
+      axios.post(`http://localhost:8000/api/classify/`, { user } )
         .then(res => {
           console.log(res);
           console.log(res.data);
@@ -77,69 +71,14 @@ export default class PersonList extends React.Component {
             <SubmitButton text='submit' />
           </form>
           <div className='result_container'>
-              { !this.state.start ?
-              <div>
-                  { !this.state.loading ?
-                  // this.state.output[0]
-                <div className='result_section_container'> 
-                  <div className='result_heading'>
-                    <div className='result_title'>
-                        <h2>Heading</h2>
-                    </div>
-                    {   
-                        this.state.output[0]? 
-                        <h3>Seems this is {this.state.output[0]} News..</h3>:<h3></h3>
-                    }
-                    <br></br>
-                    {   
-                        this.state.output[2]? 
-                        <h3>Seems this is {this.state.output[2]} News..</h3>:<h3></h3>
-                    }                    
-                    <br></br>
-                    {   
-                        this.state.output[4]? 
-                        <h3>Seems this is {this.state.output[4]}</h3>:<h3></h3>
-                    } 
-                    <br></br>
-                    {   
-                        this.state.output[6]? 
-                        <h3>Seems this is {this.state.output[8]}% {this.state.output[6]}</h3>:<h3></h3>
-                    } 
-                    <br></br>
-                  </div> 
-                  <div className='result_content'>
-                    <div className='result_title'>
-                        <h2>Content</h2>
-                    </div>
-                    {   
-                        this.state.output[1]? 
-                        <h3>Seems this is {this.state.output[1]} News..</h3>:<h3></h3>
-                    }                     
-                    <br></br>
-                    {   
-                        this.state.output[3]? 
-                        <h3>Seems this is {this.state.output[3]} News..</h3>:<h3></h3>
-                    } 
-                    <br></br>
-                    {   
-                        this.state.output[5]? 
-                        <h3>Seems this is {this.state.output[5]}</h3>:<h3></h3>
-                    } 
-                    <br></br>
-                    {   
-                        this.state.output[7]? 
-                        <h3>Seems this is {this.state.output[9]}% {this.state.output[7]}</h3>:<h3></h3>
-                    } 
-                    <br></br>
-                  </div>
-                </div> :
-                <h1>Loading..</h1>
-                }
-              </div>
-             : 
-            
-                <h1>Result Will be Displayed Here</h1>
-                
+            {
+                this.state.start?
+                <h1>Result will be displayed here</h1>
+                :
+                this.state.loading ?
+                <h2>Loading...</h2>
+                :
+                <Model res={this.state.output} />
             }
           </div>
         </div>
@@ -236,10 +175,11 @@ const ToolWrapper = styled.div`
       flex-direction: column;
   }
   .result_container {
-      padding: 20px;
+      /* padding: 20px; */
       margin-top: 20px;
-      width: 700px;
-      height: 400px;
+      /* width: 700px; */
+      /* height: 400px; */
+      max-width: 700px;
   }
   .result_title {
       padding: 5px;
