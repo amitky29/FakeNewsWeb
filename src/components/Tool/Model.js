@@ -22,17 +22,24 @@ const Model = (props) => {
     
 
     const [completed, setCompleted] = useState(0);
+    const [display, setDisplay] = useState('visible');
     useEffect(() => {
-        setInterval(() => setCompleted(90), 2000);
-    }, [completed]);
+        setInterval(() => setCompleted(47), 2000);
+    }, [completed, display]);
+
+    const displayHandler = () => {
+        // console.log('display ', display);
+        setDisplay(display => 'hidden');
+        // console.log('display ', display);
+    }
 
     return (
-        <ToolWrapper>
+        <ToolWrapper display={display}>
             <div className='result_container'>
                 <div className='title'>
                     <h2>Analysis</h2>
                 </div>
-                <div className='close_btn'>close</div>
+                <div className='close_btn'><span onClick={displayHandler}>close</span></div>
                 <div className='analysis'>
                     <div className='reliable'>
                         <h3>Insights</h3>
@@ -43,6 +50,10 @@ const Model = (props) => {
                         <Bar name="Sarcasm" perc={91.3} />
                         <Bar name="Spam" perc={52} />
                         <Bar name="Hate Speech" perc={90} />
+                        <Bar name="Fake Pattern" perc={67} />
+                        <Bar name="Fake Pattern" perc={67} />
+
+
                     </div>
                 </div>
                 <div className='final_result'>
@@ -60,12 +71,14 @@ const ToolWrapper = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
+    visibility: ${props => props.display};
     /* border: 1px solid green; */
     transform: translate(-50%, -50%);
     background: lightskyblue;
     box-shadow: 1px 1px 18px 5px rgba(0,0,0,0.93);
     -webkit-box-shadow: 1px 1px 18px 5px rgba(0,0,0,0.93);
-    -moz-box-shadow: 1px 1px 18px 5px rgba(0,0,0,0.93);    
+    -moz-box-shadow: 1px 1px 18px 5px rgba(0,0,0,0.93);
+    z-index: 100;    
     .result_container {
         width: 100%;
         padding: 20px;
@@ -89,12 +102,12 @@ const ToolWrapper = styled.div`
     .close_btn {
         position: absolute;
         top: 0;
-        right: 0;
+        right: 3px;
         font-weight: bold;
         text-transform: uppercase;
         /* text-align:center; */
         padding: 2px;
-        color: white;
+        color: red;
         font-size: 12px;
     }
     .title {

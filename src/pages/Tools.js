@@ -5,6 +5,8 @@ import styled from "styled-components";
 // import SubmitButton from './ContactButton';
 import SubmitButton from '../components/Contact/ContactButton';
 import Model from '../components/Tool/Model';
+import Loader from '../shared/components/Loader/Loader';
+
 
 
 export default class PersonList extends React.Component {
@@ -27,29 +29,40 @@ export default class PersonList extends React.Component {
     }
 
     handleChange2 = event => {
+        // this.nameInput.focus();
         this.setState({ add: event.target.value });
     }
 
     handleSubmit = event => {
-      event.preventDefault();
-      this.setState({start: false, loading: true});
-      console.log(this.state.loading);
-      const user = {
-        h1: this.state.h1,
-        h2: this.state.h2
-      };
-
-      axios.post(`${this.state.add}`, { user } )
-    //   axios.post(`http://127.0.0.1:8000/api/classify/`, {user})
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-          this.setState({ output: res.data })
-          return res
-        })
-        .then(res => {
-            this.setState({loading: false});
-        })
+      if ( this.state.add == '') {
+          this.nameInput.focus();
+          alert('Please Enter IP Address of Host!');
+          
+      }
+      else {
+        event.preventDefault();
+        this.setState({start: false, loading: true});
+        console.log(this.state.loading);
+        const user = {
+          h1: this.state.h1,
+          h2: this.state.h2
+        };
+  
+        axios.post(`${this.state.add}`, { user } )
+      //   axios.post(`http://127.0.0.1:8000/api/classify/`, {user})
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+            this.setState({ output: res.data })
+            return res
+          })
+          .then(res => {
+              this.setState({loading: false, h1: '', h2: ''});
+  
+          })
+        
+      }
+        
     }
   
     render() {
@@ -60,12 +73,14 @@ export default class PersonList extends React.Component {
             <div className='form_title'>
                 <h3>Enter Heading and Content</h3>
             </div>
-            <div className='input_area'>
             <div className='form_heading'>
-                    <label for='heading'>Ip: </label>
-                    <br></br>
-                    <input type='text' name='add' onChange={this.handleChange2} requried />
-                </div>
+                    <label for='ad'></label>
+                    <input type='text' id='ad' name='add' onChange={this.handleChange2} placeholder=" Enter IP Address" requried
+                    ref={(input) => { this.nameInput = input; }} 
+                    />
+            </div>
+            <div className='input_area'>
+                
                 <div className='form_heading'>
                     <label for='heading'>Heading: </label>
                     <br></br>
@@ -87,7 +102,8 @@ export default class PersonList extends React.Component {
                 <h1>Testing....</h1>
                 :
                 this.state.loading ?
-                <h2>Loading..</h2>
+                // <h2>Loading..</h2>
+                <Loader />
                 :
                 <Model res={this.state.output} />
             }
