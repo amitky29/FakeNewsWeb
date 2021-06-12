@@ -54,8 +54,8 @@ export default class PersonList extends React.Component {
         axios.post(`${this.state.add}`, { user } )
       //   axios.post(`http://127.0.0.1:8000/api/classify/`, {user})
           .then(res => {
-            console.log(res);
-            console.log(res.data);
+            // console.log(res);
+            // console.log(res.data);
             this.setState({ output: res.data })
             return res
           })

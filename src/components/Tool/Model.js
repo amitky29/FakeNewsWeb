@@ -9,7 +9,7 @@ import Percentage from './Percentage';
 const Model = (props) => {
 
     var output = {0:'business',4:'tech',2:'politics',3:'sport',1:'entertainment'}
-    console.log(props.res);
+    // console.log(props.res);
     // var h1_clasi = props.res[0];
     var h1_clasi = props.res['NewsC']['result'][0];
     var h2_clasi = props.res['NewsC']['result'][1];
@@ -34,26 +34,26 @@ const Model = (props) => {
     var spam_pr = 0
     if (h1_spam == 0 && h2_spam == 1) {
         spam_pr = parseInt((0.7*h2_spam_pr + 0.3*h1_spam_pr));
-        console.log('h2_spampr:', h2_spam_pr, 'h1_spa',h1_spam_pr, 'spampr1: ', spam_pr);
+        // console.log('h2_spampr:', h2_spam_pr, 'h1_spa',h1_spam_pr, 'spampr1: ', spam_pr);
     }
     else if (h1_spam == 1 && h2_spam == 0) {
         spam_pr = parseInt((0.7*h1_spam_pr + 0.3*h2_spam_pr));
-        console.log('spampr2: ', spam_pr);
+        // console.log('spampr2: ', spam_pr);
     }
     else {
         if (h1_spam_pr > h2_spam_pr) {
             // spam_pr = (0.98*h1_spam_pr + 0.02*h2_spam_pr)*100;
             spam_pr = parseInt(1*h1_spam_pr);
-            console.log('spampr3: ', spam_pr);
+            // console.log('spampr3: ', spam_pr);
         }
         else if (h2_spam_pr > h1_spam_pr) {
             spam_pr = parseInt(1*h2_spam_pr);
             // spam_pr = (0.98*h2_spam_pr + 0.02*h1_spam_pr)*100;
-            console.log('spampr4: ', spam_pr);
+            // console.log('spampr4: ', spam_pr);
         }
         else {
             spam_pr = parseInt(1*h1_spam_pr);
-            console.log('spampr5: ', spam_pr);
+            // console.log('spampr5: ', spam_pr);
         }
     }
 
