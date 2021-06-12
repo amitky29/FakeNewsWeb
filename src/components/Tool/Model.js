@@ -19,7 +19,7 @@ const Model = (props) => {
     var sarc_pr = parseInt(parseFloat(props.res['Sarcasm']['probability'][0])*100)
     var h1_spam = props.res['Spam']['result'][0];
     var h2_spam = props.res['Spam']['result'][1];
-    var h1_spam_pr = parseInt(parseFloat(props.res['Spam']['probability'][0])*100);
+    var h1_spam_pr = parseInt(parseFloat(props.res['Spam']['probability'][1])*100);
     var h2_spam_pr = parseInt(parseFloat(props.res['Spam']['probability'][1])*100); 
     var fake = props.res['Fake']['result']
     var fake_pr = 100 - parseInt(parseFloat(props.res['Fake']['probability'][0])*100)
@@ -28,23 +28,27 @@ const Model = (props) => {
     // var h2_prob_clas = props.res[7];
     // var h1_fake = props.res[8][0];
     // var h1_prob = props.res[9][0];
-    console.log(output[h1_clasi], output[h2_clasi])
+    
+    // console.log(output[h1_clasi], output[h2_clasi])
+    // console.log(h1_spam_pr, h2_spam_pr)
     var spam_pr = 0
-    if (parseInt(h1_spam) == 0 && parseInt(h2_spam) == 1) {
+    if (h1_spam == 0 && h2_spam == 1) {
         spam_pr = (0.7*h2_spam_pr + 0.3*h1_spam_pr)*100;
     }
-    else if (parseInt(h1_spam) == 1 && parseInt(h2_spam) == 0) {
+    else if (h1_spam == 1 && h2_spam == 0) {
         spam_pr = (0.7*h1_spam_pr + 0.3*h2_spam_pr)*100;
     }
     else {
         if (h1_spam_pr > h2_spam_pr) {
-            spam_pr = (0.98*h1_spam_pr + 0.02*h2_spam_pr)*100;
+            // spam_pr = (0.98*h1_spam_pr + 0.02*h2_spam_pr)*100;
+            spam_pr = 1*h1_spam_pr;
         }
         else if (h2_spam_pr > h1_spam_pr) {
-            spam_pr = (0.98*h2_spam_pr + 0.02*h1_spam_pr)*100;
+            spam_pr = 1*h2_spam_pr;
+            // spam_pr = (0.98*h2_spam_pr + 0.02*h1_spam_pr)*100;
         }
         else {
-            spam_pr = 100*h1_spam_pr;
+            spam_pr = 1*h1_spam_pr;
         }
     }
 
@@ -64,12 +68,12 @@ const Model = (props) => {
         }
     }
 
-    if (h1_spam > h2_spam) {
-        spam_pr = h1_spam
-    }
-    else {
-        spam_pr = h2_spam
-    }
+    // if (h1_spam > h2_spam) {
+    //     spam_pr = h1_spam
+    // }
+    // else {
+    //     spam_pr = h2_spam
+    // }
 
 
     // Reliability
