@@ -74,6 +74,11 @@ const Model = (props) => {
 
     // Reliability
     // if ((spam_pr > 50 || fake_pr >50) && (simi_pr < 50) &&)
+
+    // const completeHandler = () => {
+    //     // setCompleted((100-(reli)));
+    //     // // console.log('COmpl: ', completed);
+    // }
     var reli = 0
     if ((spam_pr > 80) && (fake_pr < 65) && (fake_pr > 50)) {
         reli = 0.6*spam_pr + 0.3*fake_pr + 0.05*simi_pr + 0.05*sarc_pr;
@@ -81,7 +86,7 @@ const Model = (props) => {
     else if ((spam_pr > 50) && (fake_pr < 65) && (fake_pr > 50)) {
         reli = 0.3*spam_pr + 0.5*fake_pr + 0.1*simi_pr + 0.1*sarc_pr;
     }
-    else if ((fake_pr > 65) && (simi_pr == 50)) {
+    else if ((fake_pr >= 65) && (simi_pr == 50 || simi_pr > 50)) {
         reli = 0.8*fake_pr + 0.2*spam_pr;
     }
     else if ((fake_pr < 65) && (spam_pr > 80)) {
@@ -93,12 +98,14 @@ const Model = (props) => {
     else {
         reli = 0.5*fake_pr + 0.4*spam_pr + 0.05*spam_pr + 0.05*sarc_pr;
     }
-
-
+    reli = 100 - parseInt(reli);
+    
+    console.log('Comp: ', reli);
     const [completed, setCompleted] = useState(0);
     const [display, setDisplay] = useState('visible');
     useEffect(() => {
-        setInterval(() => setCompleted((90-(reli*100))), 2000);
+        setInterval(() => setCompleted(reli), 2000);
+        // setInterval((completeHandler) => console.log(completed), 1500)
     }, [completed, display]);
 
     const displayHandler = () => {
@@ -134,7 +141,7 @@ const Model = (props) => {
                     <div className='reliable'>
                         <h3>Reliability Percentage</h3>
                     </div>
-                    <Percentage bgcolor={'red'} completed={100-reli*100} />
+                    <Percentage bgcolor={'red'} completed={completed} />
                 </div>
             </div>
         </ToolWrapper>
