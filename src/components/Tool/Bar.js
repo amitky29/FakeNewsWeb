@@ -43,7 +43,7 @@ const Bar = ({name, perc}) => {
         }
     }
 
-    if (name == 'Hate Speech') {
+    if (name == 'Fake Pattern') {
         if (perc > 70) {
             color = '#d00000';
         }

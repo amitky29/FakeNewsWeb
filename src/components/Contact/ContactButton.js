@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ContactButton = (props) => {
     return (
         <ContactButtonWrapper>
-            <input type='submit' value={props.text} /> 
+            <input type='submit' value={props.text} disabled={props.disable} /> 
         </ContactButtonWrapper>
     )
 }
@@ -19,6 +19,7 @@ const ContactButtonWrapper = styled.div`
         font-weight: bolder;
         text-transform: uppercase;
         background: rgb(0, 0, 77);
+        cursor: pointer;
     }
     input[type=submit]:hover {
         background-color: whitesmoke;
