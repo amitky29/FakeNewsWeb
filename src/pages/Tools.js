@@ -16,7 +16,8 @@ export default class PersonList extends React.Component {
       add: '',
       output: '',
       loading: false,
-      start: true
+      start: true,
+      disable: false
     }
   
     handleChange = event => {
@@ -40,13 +41,15 @@ export default class PersonList extends React.Component {
           
       }
       else {
-        event.preventDefault();
-        this.setState({start: false, loading: true});
+
+        this.setState({start: false, loading: true, disable:true});
         console.log(this.state.loading);
         const user = {
           h1: this.state.h1,
           h2: this.state.h2
         };
+        event.preventDefault();
+      
   
         axios.post(`${this.state.add}`, { user } )
       //   axios.post(`http://127.0.0.1:8000/api/classify/`, {user})
@@ -77,6 +80,7 @@ export default class PersonList extends React.Component {
                     <label for='ad'></label>
                     <input type='text' id='ad' name='add' onChange={this.handleChange2} placeholder=" Enter IP Address" requried
                     ref={(input) => { this.nameInput = input; }} 
+                    disabled={this.state.disable}
                     />
             </div>
             <div className='input_area'>
@@ -84,17 +88,18 @@ export default class PersonList extends React.Component {
                 <div className='form_heading'>
                     <label for='heading'>Heading: </label>
                     <br></br>
-                    <textarea id='heading' type="text" name="h1" onChange={this.handleChange} rows='5' cols='50' required/>
+                    <textarea id='heading' type="text" name="h1" onChange={this.handleChange} rows='5' cols='50' required
+                    ref={(inputh1) => { this.nameInputh1 = inputh1; }} disabled={this.state.disable}/>
                 </div>
                 <div className='form_heading'>
                     <label for='content'>Content: </label>
                     <br></br>
-                    <textarea id='content' type="text" name="h2" onChange={this.handleChange1} rows='5' cols='50' required/>
+                    <textarea id='content' type="text" name="h2" onChange={this.handleChange1} rows='5' cols='50' required disabled={this.state.disable}/>
                 </div>
             </div>
             
             {/* <button type="submit">submit</button> */}
-            <SubmitButton text='submit' />
+            <SubmitButton text='submit' disable={this.state.disable} />
           </form>
           <div className='result_container'>
             {
