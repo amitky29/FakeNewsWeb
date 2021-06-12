@@ -28,27 +28,32 @@ const Model = (props) => {
     // var h2_prob_clas = props.res[7];
     // var h1_fake = props.res[8][0];
     // var h1_prob = props.res[9][0];
-    
+
     // console.log(output[h1_clasi], output[h2_clasi])
     // console.log(h1_spam_pr, h2_spam_pr)
     var spam_pr = 0
     if (h1_spam == 0 && h2_spam == 1) {
-        spam_pr = (0.7*h2_spam_pr + 0.3*h1_spam_pr)*100;
+        spam_pr = parseInt((0.7*h2_spam_pr + 0.3*h1_spam_pr));
+        console.log('h2_spampr:', h2_spam_pr, 'h1_spa',h1_spam_pr, 'spampr1: ', spam_pr);
     }
     else if (h1_spam == 1 && h2_spam == 0) {
-        spam_pr = (0.7*h1_spam_pr + 0.3*h2_spam_pr)*100;
+        spam_pr = parseInt((0.7*h1_spam_pr + 0.3*h2_spam_pr));
+        console.log('spampr2: ', spam_pr);
     }
     else {
         if (h1_spam_pr > h2_spam_pr) {
             // spam_pr = (0.98*h1_spam_pr + 0.02*h2_spam_pr)*100;
-            spam_pr = 1*h1_spam_pr;
+            spam_pr = parseInt(1*h1_spam_pr);
+            console.log('spampr3: ', spam_pr);
         }
         else if (h2_spam_pr > h1_spam_pr) {
-            spam_pr = 1*h2_spam_pr;
+            spam_pr = parseInt(1*h2_spam_pr);
             // spam_pr = (0.98*h2_spam_pr + 0.02*h1_spam_pr)*100;
+            console.log('spampr4: ', spam_pr);
         }
         else {
-            spam_pr = 1*h1_spam_pr;
+            spam_pr = parseInt(1*h1_spam_pr);
+            console.log('spampr5: ', spam_pr);
         }
     }
 
@@ -86,21 +91,27 @@ const Model = (props) => {
     var reli = 0
     if ((spam_pr > 80) && (fake_pr < 65) && (fake_pr > 50)) {
         reli = 0.6*spam_pr + 0.3*fake_pr + 0.05*simi_pr + 0.05*sarc_pr;
+        console.log('reil: ', reli);
     }
     else if ((spam_pr > 50) && (fake_pr < 65) && (fake_pr > 50)) {
         reli = 0.3*spam_pr + 0.5*fake_pr + 0.1*simi_pr + 0.1*sarc_pr;
+        console.log('reil: ', reli);
     }
     else if ((fake_pr >= 65) && (simi_pr == 50 || simi_pr > 50)) {
         reli = 0.8*fake_pr + 0.2*spam_pr;
+        console.log('reil: ', reli);
     }
     else if ((fake_pr < 65) && (spam_pr > 80)) {
         reli = 0.7*spam_pr + 0.3*fake_pr
+        console.log('reil: ', reli);
     }
     else if ((fake_pr < 60) && (sarc_pr > 85)) {
         reli = 0.5*sarc_pr + 0.3*fake_pr + 0.2*spam_pr;
+        console.log('reil: ', reli);
     }
     else {
         reli = 0.5*fake_pr + 0.4*spam_pr + 0.05*spam_pr + 0.05*sarc_pr;
+        console.log('reil: ', reli);
     }
     reli = 100 - parseInt(reli);
     
