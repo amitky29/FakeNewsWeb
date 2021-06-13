@@ -8,7 +8,8 @@ import Percentage from './Percentage';
 
 const Model = (props) => {
 
-    var output = {0:'business',4:'tech',2:'politics',3:'sport',1:'entertainment'}
+    // var output = {0:'business',4:'tech',2:'politics',3:'sport',1:'entertainment'}
+    var output = {1: 'ENTERTAINMENT', 3: 'POLITICS', 0: 'BUSINESS', 4: 'SCIENCE AND EDU', 2: 'HEALTH & ENV'}
     // console.log(props.res);
     // var h1_clasi = props.res[0];
     var h1_clasi = props.res['NewsC']['result'][0];
@@ -19,8 +20,8 @@ const Model = (props) => {
     var sarc_pr = parseInt(parseFloat(props.res['Sarcasm']['probability'][0])*100)
     var h1_spam = props.res['Spam']['result'][0];
     var h2_spam = props.res['Spam']['result'][1];
-    var h1_spam_pr = parseInt(parseFloat(props.res['Spam']['probability'][1])*100);
-    var h2_spam_pr = parseInt(parseFloat(props.res['Spam']['probability'][1])*100); 
+    var h1_spam_pr = parseInt(parseFloat(props.res['Spam']['probability'][0][1])*100);
+    var h2_spam_pr = parseInt(parseFloat(props.res['Spam']['probability'][1][1])*100); 
     var fake = props.res['Fake']['result']
     var fake_pr = 100 - parseInt(parseFloat(props.res['Fake']['probability'][0])*100)
     // var h2_spam = props.res[5];
@@ -28,8 +29,9 @@ const Model = (props) => {
     // var h2_prob_clas = props.res[7];
     // var h1_fake = props.res[8][0];
     // var h1_prob = props.res[9][0];
+    //1 True News, 0 False News
 
-    // console.log(output[h1_clasi], output[h2_clasi])
+    console.log(output[h1_clasi], output[h2_clasi])
     // console.log(h1_spam_pr, h2_spam_pr)
     var spam_pr = 0
     if (h1_spam == 0 && h2_spam == 1) {
@@ -62,33 +64,46 @@ const Model = (props) => {
         var simi_pr = 100
     }
     else {
-        if (h1_clasi_pr[h1_clasi] + h2_clasi_pr[h1_clasi] > 95) {
-            var simi_pr = 98
+        if ((output[h1_clasi] == 'POLITICS' && output[h2_clasi] == 'ENTERTAINMENT') || (output[h2_clasi] == 'POLITICS' && output[h1_clasi] == 'ENTERTAINMENT')) {
+            var simi_pr = 75;
         }
-        if (h2_clasi_pr[h2_clasi] + h1_clasi_pr[h1_clasi] > 95) {
-            var simi_pr = 98
+        if ((output[h1_clasi] == 'POLITICS' && output[h2_clasi] == 'BUSINESS') || (output[h2_clasi] == 'POLITICS' && output[h1_clasi] == 'BUSINESS')) {
+            if (fake_pr < 5) {
+                spam_pr = parseInt(spam_pr*20)/100
+            }
+            var simi_pr = 80;
+        }
+        else if ((output[h1_clasi] == 'HEALTH & ENV' && output[h2_clasi] == 'SCIENCE AND EDU') || (output[h2_clasi] == 'HEALTH & ENV' && output[h1_clasi] == 'SCIENCE AND EDU')) {
+            var simi_pr = 80;
+        }
+        else if (h1_clasi_pr[h1_clasi] + h2_clasi_pr[h1_clasi] > 95) {
+            var simi_pr = 98;
+        }
+        else if (h2_clasi_pr[h2_clasi] + h1_clasi_pr[h1_clasi] > 95) {
+            var simi_pr = 98;
         }
         else {
-            var simi_pr = 50
+            var simi_pr = 50;
         }
     }
 
-    // if (h1_spam > h2_spam) {
-    //     spam_pr = h1_spam
-    // }
-    // else {
-    //     spam_pr = h2_spam
-    // }
-
-
-    // Reliability
-    // if ((spam_pr > 50 || fake_pr >50) && (simi_pr < 50) &&)
-
-    // const completeHandler = () => {
-    //     // setCompleted((100-(reli)));
-    //     // // console.log('COmpl: ', completed);
-    // }
+    if ( simi_pr > 97) {
+        if (fake_pr < 60) {
+            if (output[h1_clasi] == 'POLITICS' ||  output[h1_clasi] == 'SCIENCE AND EDU' || output[h1_clasi] == 'HEALTH & ENV') {
+                console.log('inside');
+                spam_pr = parseInt(30*spam_pr)/100;
+                sarc_pr = parseInt(85*sarc_pr)/100;
+            }
+            if (output[h1_clasi] == 'SCIENCE AND EDU' || output[h1_clasi] == 'HEALTH & ENV') {
+                sarc_pr = parseInt(50*sarc_pr)/100;
+                spam_pr = parseInt(60*spam_pr)/100;
+            }
+        }
+    }
     var reli = 0
+    if ((spam_pr > 95) && (fake_pr < 5)) {
+        reli = 0.7*fake_pr + 0.3*spam_pr;
+    }
     if ((spam_pr > 80) && (fake_pr < 65) && (fake_pr > 50)) {
         reli = 0.6*spam_pr + 0.3*fake_pr + 0.05*simi_pr + 0.05*sarc_pr;
         console.log('reil: ', reli);
@@ -106,7 +121,7 @@ const Model = (props) => {
         console.log('reil: ', reli);
     }
     else if ((fake_pr < 60) && (sarc_pr > 85)) {
-        reli = 0.5*sarc_pr + 0.3*fake_pr + 0.2*spam_pr;
+        reli = 0.4*sarc_pr + 0.4*fake_pr + 0.2*spam_pr;
         console.log('reil: ', reli);
     }
     else {
@@ -148,7 +163,6 @@ const Model = (props) => {
                         {/* <Bar name="Hate Speech" perc={90} /> */}
                         <Bar name="Fake Pattern" perc={fake_pr} />
                         {/* <Bar name="Fake Pattern" perc={67} /> */}
-
 
                     </div>
                 </div>

@@ -55,7 +55,7 @@ export default class PersonList extends React.Component {
       //   axios.post(`http://127.0.0.1:8000/api/classify/`, {user})
           .then(res => {
             // console.log(res);
-            // console.log(res.data);
+            console.log(res.data);
             this.setState({ output: res.data })
             return res
           })
@@ -104,7 +104,8 @@ export default class PersonList extends React.Component {
           <div className='result_container'>
             {
                 this.state.start?
-                <h1>Testing....</h1>
+                // <h1>Testing....</h1>
+                <div></div>
                 :
                 this.state.loading ?
                 // <h2>Loading..</h2>
