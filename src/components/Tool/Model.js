@@ -116,8 +116,11 @@ const Model = (props) => {
         reli = 0.8*fake_pr + 0.2*spam_pr;
         console.log('reil: ', reli);
     }
+    else if ((fake_pr < 30) && (spam_pr > 85)) {
+        reli = 0.5*fake_pr + 0.5*spam_pr
+    }
     else if ((fake_pr < 65) && (spam_pr > 80)) {
-        reli = 0.7*spam_pr + 0.3*fake_pr
+        reli = 0.6*spam_pr + 0.4*fake_pr
         console.log('reil: ', reli);
     }
     else if ((fake_pr < 60) && (sarc_pr > 85)) {
@@ -125,7 +128,7 @@ const Model = (props) => {
         console.log('reil: ', reli);
     }
     else {
-        reli = 0.5*fake_pr + 0.4*spam_pr + 0.05*spam_pr + 0.05*sarc_pr;
+        reli = 0.6*fake_pr + 0.3*spam_pr + 0.05*spam_pr + 0.05*sarc_pr;
         console.log('reil: ', reli);
     }
     reli = 100 - parseInt(reli);
