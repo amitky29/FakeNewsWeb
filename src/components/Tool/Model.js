@@ -145,11 +145,26 @@ const Model = (props) => {
         // console.log('display ', display);
         setDisplay(display => 'hidden');
         // console.log('display ', display);
+        props.initialHandler();
     }
+    var color='green';
 
     return (
-        <ToolWrapper display={display}>
+        <ToolWrapper display={display} bulb={completed<50? color='red': completed <70? color='yellow': color='green'}>
             <div className='result_container'>
+                <div className="area">
+                <div className="wire"></div>
+                <div className="fixture">
+                    <div className="strip"></div>
+                    <div className="strip"></div>
+                    <div className="strip"></div>
+                </div>
+                <div className="bulb">
+                    <div className="zig"></div>
+                    <div className="zig"></div>
+                    <div className="zig"></div>
+                </div>
+                </div>
                 <div className='title'>
                     <h2>Analysis</h2>
                 </div>
@@ -188,10 +203,11 @@ const ToolWrapper = styled.div`
     /* border: 1px solid green; */
     transform: translate(-50%, -50%);
     background: lightskyblue;
+    overflow: hidden;
     box-shadow: 1px 1px 18px 5px rgba(0,0,0,0.93);
     -webkit-box-shadow: 1px 1px 18px 5px rgba(0,0,0,0.93);
     -moz-box-shadow: 1px 1px 18px 5px rgba(0,0,0,0.93);
-    z-index: 100;    
+    z-index: 90;    
     .result_container {
         width: 100%;
         padding: 20px;
@@ -246,6 +262,98 @@ const ToolWrapper = styled.div`
         padding: 10px;
         text-align: center;
     }
+
+    /* bulb */
+    .area {
+    width: 200px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    
+    background: transparent;
+    /* background: black; */
+    animation: swing 1s infinite ease-in-out alternate;
+    transform-origin: top;
+    -moz-transform-origin: top;
+    -webkit-transform-origin: top;
+}
+
+.wire {
+    position: relative;
+    left: 98px;
+    height: 265px;
+    width: 4px;
+    background-color: black;
+}
+
+.fixture {
+    position: relative;
+    background-color: grey;
+    width: 16px;
+    height: 20px;
+    left: 92px;
+}
+
+.strip {
+    position: relative;
+    width: 18px;
+    height: 2px;
+    right: 1px;
+    top: 4px;
+    background-color: darkgrey;
+}
+
+.strip:nth-of-type(2) {
+    top: 7px;
+}
+
+.strip:nth-of-type(3) {
+    top: 10px;
+}
+
+.bulb {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: 80px;
+    bottom: 2px;
+    /* z-index: -1; */
+    z-index: 100;
+    /* background-color: rgba(226, 211, 161, 0.85); */
+    background-color: ${props => props.bulb};
+    border-radius: 50%;
+}
+
+.zig {
+    position: relative;
+    background-color: transparent;
+    width: 10px;
+    height: 5px;
+    border-radius: 5px / 2.5px;
+    left: 14px;
+    border: black solid 1px;
+}
+
+.zig:nth-of-type(2) {
+    top: -3px;
+}
+
+.zig:nth-of-type(3) {
+    top: -6px;
+}
+
+@keyframes swing {
+    from {
+        -moz-transform: rotate(3deg);
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+    to {
+        transform: rotate(-3deg);
+    }
+}
+
 `
 
 export default Model;

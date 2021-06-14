@@ -6,7 +6,8 @@ import styled from "styled-components";
 import SubmitButton from '../components/Contact/ContactButton';
 import Model from '../components/Tool/Model';
 import Loader from '../shared/components/Loader/Loader';
-
+import Bulb from '../images/bulb.svg';
+import ToolImg from '../images/tools.jpg';
 
 
 export default class PersonList extends React.Component {
@@ -20,6 +21,10 @@ export default class PersonList extends React.Component {
       disable: false
     }
   
+    initialHandler = () => {
+      this.setState({h1: '', h2: '', disable: false, loading: false, output: '', start: true});
+    }
+
     handleChange = event => {
     console.log(this.state.loading);
       this.setState({ h1: event.target.value });
@@ -70,8 +75,9 @@ export default class PersonList extends React.Component {
   
     render() {
       return (
-        <ToolWrapper>
+        <ToolWrapper tool={ToolImg} bulb={Bulb}>
         <div>
+          {/* <div className='bulbContainer'></div> */}
           <form onSubmit={this.handleSubmit} className='form_container'>
             <div className='form_title'>
                 <h3>Enter Heading and Content</h3>
@@ -84,17 +90,17 @@ export default class PersonList extends React.Component {
                     />
             </div>
             <div className='input_area'>
-                
+                {/* <SVG /> */}
                 <div className='form_heading'>
                     <label for='heading'>Heading: </label>
                     <br></br>
-                    <textarea id='heading' type="text" name="h1" onChange={this.handleChange} rows='5' cols='50' required
+                    <textarea id='heading' value={this.state.h1} type="text" name="h1" onChange={this.handleChange} rows='5' cols='50' required
                     ref={(inputh1) => { this.nameInputh1 = inputh1; }} disabled={this.state.disable}/>
                 </div>
                 <div className='form_heading'>
                     <label for='content'>Content: </label>
                     <br></br>
-                    <textarea id='content' type="text" name="h2" onChange={this.handleChange1} rows='5' cols='50' required disabled={this.state.disable}/>
+                    <textarea id='content' type="text" value={this.state.h2} name="h2" onChange={this.handleChange1} rows='5' cols='50' required disabled={this.state.disable}/>
                 </div>
             </div>
             
@@ -111,7 +117,7 @@ export default class PersonList extends React.Component {
                 // <h2>Loading..</h2>
                 <Loader />
                 :
-                <Model res={this.state.output} />
+                <Model res={this.state.output} initialHandler={this.initialHandler} />
             }
           </div>
         </div>
@@ -122,12 +128,19 @@ export default class PersonList extends React.Component {
 
 
 const ToolWrapper = styled.div`
-    margin-top: 3rem;
-    padding: 30px;
-    min-height: 86vh;
+
+    /* background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url(${props => props.tool}) center/cover no-repeat; */
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,209,255,0.3)), url(${props => props.tool}) center/cover no-repeat;
+
+    width: 100vw;
+    margin-top: 1rem;
+    padding-top: 55px;
+    min-height: 94vh;
+    /* min-height: 86vh; */
     display: flex;
     justify-content: center;
     /* align-items: center; */
+    
   .form_container {
       /* margin: auto 0; */
       padding: 20px;
@@ -150,10 +163,11 @@ const ToolWrapper = styled.div`
   }
   .form_heading {
       font-size: 18px;
-      font-weight: lighter;
+      font-weight: bolder;
       letter-spacing: 2px;
       padding: 15px;
       text-transform: uppercase;
+      color: white;
   }
   .input_area {
     display: flex;
@@ -162,6 +176,7 @@ const ToolWrapper = styled.div`
     padding: 20px;
     justify-content: center;
     align-items: center;
+    /* background: rgba(0,0,0,0.6); */
   }
   textarea {
       // border: 1px solid grey;
@@ -178,6 +193,16 @@ const ToolWrapper = styled.div`
       border-radius: 4px;
       background-color: #f8f8f8;
       resize: none;
+      color: white;
+
+      background: rgba(0,0,0,0.5);
+  }
+  input {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid white;
+    padding: 10px;
+    outline: none ;
+    color: yellow;
   }
   .result_section_container {
       display: flex;
