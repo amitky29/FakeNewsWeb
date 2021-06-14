@@ -16,7 +16,7 @@ const Footer = () => {
                 </div>
                 <div className='footer_link'>
                     <span>Design & Build By</span>
-                    <span><a className='f_link prabweb' target='_blank' href='https://prabweb.netlify.app'>PRAB WEB</a></span>
+                    
                     <span>|</span>
                     <span><Link to='' className='f_link privacy'>Privacy</Link></span>
                 </div>
