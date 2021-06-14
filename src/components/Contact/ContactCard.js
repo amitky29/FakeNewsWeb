@@ -17,7 +17,7 @@ const ContactCard = () => {
                         <span className='icon'><BiMessageDetail /></span>
                     </div>
                     <div className='form'>
-                        <form className='form_box' action="https://formsubmit.co/shravanipoman1999@gmail.com" method="POST">
+                        <form className='form_box' action="https://formsubmit.co/timaky2912@gmail.com" method="POST">
                             <div className='form_row'>
                                 <span className='label'>Enter Name</span><br/>
                                 <input type='text'placeholder='Type Here' name='name'/>
@@ -49,15 +49,15 @@ const ContactCard = () => {
                     <div className='deatils_wrapper'>
                         <div className='info'>
                             <span className='icon sec'><GoLocation /></span>
-                            <h5>D.Y. Patil College of engineering akurdi,411033</h5>
+                            <h5>PDEA College of Engineering Manjari,412307</h5>
                         </div>
                         <div className='info'>
                             <span className='icon sec'><MdCall /></span>
-                            <h4>9561286698,9284541883</h4>
+                            <h4>7769842263,9100623463</h4>
                         </div>
                         <div className='info'>
                             <span className='icon sec'><BiMessageDetail /></span>
-                            <h4>shravanipoman1999@gmail.com</h4>
+                            <h4>timaky2912@gmail.com</h4>
                         </div>
                     </div>
                 </div>
