@@ -15,8 +15,6 @@ const Footer = () => {
                     <span>|</span>
                 </div>
                 <div className='footer_link'>
-                    <span>Design & Build By</span>
-                    
                     <span>|</span>
                     <span><Link to='' className='f_link privacy'>Privacy</Link></span>
                 </div>
